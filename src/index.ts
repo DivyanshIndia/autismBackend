@@ -9,11 +9,7 @@ import cors from "cors";
 import router from "./router";
 import mongoose from "mongoose";
 
-import multer from "multer";
 const app = express();
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
 
 app.use(
   cors({
@@ -33,8 +29,7 @@ server.listen(8080, () => {
 });
 
 const MONGO_URL =
-  "mongodb+srv://autism:AB5QXZ90aodmB45M@cluster0.id1dcdr.mongodb.net/?retryWrites=true&w=majority";
-//AB5QXZ90aodmB45M
+  "mongodb+srv://lusizhao9:YQA2VmXJdapeRQt1@cluster0.2hlekxb.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);

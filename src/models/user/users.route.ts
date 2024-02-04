@@ -1,7 +1,4 @@
 import express from "express";
-import multer from "multer";
-
-
 
 import {
   getAllUsers,
@@ -16,10 +13,6 @@ import {
 } from "./users.controller";
 import { isAuthenticated, isOwner } from "../../middleware";
 
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-
 export default (router: express.Router) => {
   router.get("/users", isAuthenticated, getAllUsers);
   router.get("/users/:id", getUserByIdController);
@@ -32,7 +25,7 @@ export default (router: express.Router) => {
     "/users/:id",
     isAuthenticated,
     isOwner,
-    upload.single("profilePicture"),
+
     updateUser
   );
 
