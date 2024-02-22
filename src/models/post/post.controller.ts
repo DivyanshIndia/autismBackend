@@ -121,7 +121,7 @@ export const upvotePost = async (
     const userIndex = upvotes.indexOf(userId);
 
     if (userIndex === -1) {
-      // User hasn't upvoted yet, add the upvote
+      // User hasn't upvoted yet, add the upvote  
       upvotes.push(userId);
       await editPostById(id, { upvotes });
       res.status(200).json({ message: "Upvote successful" });

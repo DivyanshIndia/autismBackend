@@ -8,6 +8,7 @@ import cors from "cors";
 
 import router from "./router";
 import mongoose from "mongoose";
+import { initializeSocket } from "server";
 
 const app = express();
 
@@ -23,6 +24,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 const server = http.createServer(app);
+
+const io = initializeSocket(server);
 
 server.listen(8080, () => {
   console.log("Server running on http://localhost:8080/");

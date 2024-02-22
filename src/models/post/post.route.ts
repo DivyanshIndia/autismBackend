@@ -9,7 +9,7 @@ import {
   deletePost,
   getUpvoteCount,
   upvotePost,
-  getPostsCountOfAuthor
+  getPostsCountOfAuthor,
 } from "./post.controller";
 
 export default (router: express.Router) => {
@@ -22,6 +22,9 @@ export default (router: express.Router) => {
 
   router.get("/posts/:id/upvote-count", isAuthenticated, getUpvoteCount);
   router.post("/posts/:id/upvote", isAuthenticated, upvotePost);
-  router.get("/users/:userId/posts/count", isAuthenticated, getPostsCountOfAuthor);
-
+  router.get(
+    "/users/:userId/posts/count",
+    isAuthenticated,
+    getPostsCountOfAuthor
+  );
 };
